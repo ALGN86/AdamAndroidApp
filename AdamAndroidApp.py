@@ -237,9 +237,9 @@ class AdamAndroidApp(App):
 
     def stop_all_scripts(self, instance):
         print("Остановка всех скриптов")
-        for script_name in self.running_scripts:
-            self.ssh_client.stop_command(script_name)
-        self.running_scripts.clear()
+        for command_name in list(self.ssh_client.running_commands.keys()):
+            self.ssh_client.stop_command(command_name)
+        print("Все скрипты остановлены")
 
 
 if __name__ == "__main__":
